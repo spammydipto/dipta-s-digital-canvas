@@ -1,0 +1,80 @@
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Briefcase, ShoppingCart } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Experience = () => {
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".experience-section",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    tl.fromTo(
+      ".experience-heading",
+      { opacity: 0, y: 60, filter: "blur(10px)" },
+      { opacity: 1, y: 0, filter: "blur(0px)", duration: 1, ease: "power2.out" }
+    ).fromTo(
+      ".experience-card",
+      { opacity: 0, y: 60 },
+      { opacity: 1, y: 0, stagger: 0.2, duration: 0.8, ease: "power2.out" },
+      "-=0.5"
+    );
+  }, []);
+
+  return (
+    <section id="experience" className="experience-section min-h-screen py-20 px-6">
+      <div className="container mx-auto max-w-5xl">
+        <h2 className="experience-heading text-5xl md:text-6xl font-bold text-center mb-16">
+          Work <span className="gradient-text">Experience</span>
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="experience-card glass rounded-3xl p-8 hover:bg-card/50 transition-all duration-300 group">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 rounded-2xl bg-neon-cyan/10 group-hover:glow-cyan transition-all duration-300">
+                <Briefcase className="w-8 h-8 text-neon-cyan" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-foreground">Line Cook</h3>
+                <p className="text-primary font-medium">The Church Brewing Co</p>
+                <p className="text-sm text-muted-foreground">Sept 2023 - Present</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              Thriving in a fast-paced environment through exceptional teamwork, precise organization, 
+              and meticulous attention to detail. Skilled in multitasking and maintaining smooth customer 
+              flow while ensuring consistent quality and efficiency.
+            </p>
+          </div>
+
+          <div className="experience-card glass rounded-3xl p-8 hover:bg-card/50 transition-all duration-300 group">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 rounded-2xl bg-neon-purple/10 group-hover:glow-purple transition-all duration-300">
+                <ShoppingCart className="w-8 h-8 text-neon-purple" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-foreground">Store Associate</h3>
+                <p className="text-secondary font-medium">Independent Grocer</p>
+                <p className="text-sm text-muted-foreground">Feb 2024 - May 2024</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              Delivered exceptional customer service while managing stock inventory with precision. 
+              Demonstrated strong communication skills and accuracy in all transactions, contributing 
+              to a positive shopping experience for customers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
