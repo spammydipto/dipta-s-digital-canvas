@@ -13,40 +13,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "3D Interactive Email Platform",
-    description: "Email service for developers with 3D interactive UI and modern design",
+    title: "FoodLoop",
+    description: "An AI-driven website to reduce food waste by connecting NGOs and food donors",
     image: project1,
-    tech: ["React", "Three.js", "Spline"],
+    tech: ["React", "AI", "Node.js"],
   },
   {
-    title: "Gaming UI Dashboard",
-    description: "Next-level gaming interface with character stats and arena features",
+    title: "Guessing Game",
+    description: "A fun web app where players guess the object name based on a displayed picture",
     image: project2,
-    tech: ["React", "GSAP", "CSS3"],
+    tech: ["JavaScript", "HTML", "CSS"],
   },
   {
-    title: "3D Portfolio Website",
-    description: "Developer portfolio with immersive 3D elements and smooth animations",
+    title: "Snake Game",
+    description: "Classic Snake game implemented to strengthen OOP concepts and core coding fundamentals",
     image: project3,
-    tech: ["HTML", "CSS", "JavaScript", "Spline"],
+    tech: ["Java", "OOP", "Game Dev"],
   },
   {
-    title: "Gaming Website Platform",
-    description: "Creative gaming platform with vibrant colors and engaging UI",
+    title: "Coming Soon",
+    description: "Exciting new project in development",
     image: project4,
-    tech: ["React", "Tailwind", "Animation"],
+    tech: ["TBA"],
   },
   {
-    title: "Web Animation Tools",
-    description: "Portfolio showcasing top web animation tools and techniques",
+    title: "Coming Soon",
+    description: "Exciting new project in development",
     image: project5,
-    tech: ["GSAP", "React", "Motion"],
+    tech: ["TBA"],
   },
   {
-    title: "Animated Portfolio Tutorial",
-    description: "Step-by-step tutorial for creating animated portfolio websites",
+    title: "Coming Soon",
+    description: "Exciting new project in development",
     image: project6,
-    tech: ["HTML", "CSS", "GSAP"],
+    tech: ["TBA"],
   },
 ];
 

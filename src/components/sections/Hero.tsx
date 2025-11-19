@@ -2,10 +2,13 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 const Hero = () => {
+  const { displayedText } = useTypewriter("A Full-Stack Developer", 100, 1000);
+
   useEffect(() => {
-    const tl = gsap.timeline({ delay: 2.8 });
+    const tl = gsap.timeline({ delay: 0.5 });
 
     tl.fromTo(
       ".hero-headline",
@@ -50,17 +53,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Spline 3D Background */}
-      <div className="absolute inset-0 z-0">
-        <iframe
-          src="https://my.spline.design/robotfollowcursorforlandingpage-T2fFaPa62If5AfwoZn11BlWk/"
-          frameBorder="0"
-          width="100%"
-          height="100%"
-          className="w-full h-full"
-        />
-      </div>
-
       {/* Floating Orbs */}
       <div className="floating-orb-1 absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-neon-cyan/10 blur-3xl" />
       <div className="floating-orb-2 absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-neon-purple/10 blur-3xl" />
@@ -70,11 +62,9 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto space-y-6">
           <h1 className="hero-headline text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
             Hi, I'm <span className="gradient-text">Dipta</span>
-            <br />
-            <span className="text-foreground/90">Full Stack Web Developer</span>
           </h1>
-          <p className="hero-subtitle text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Crafting digital experiences that inspire and engage through innovative design and cutting-edge technology
+          <p className="hero-subtitle text-3xl md:text-4xl text-primary font-semibold min-h-[3rem]">
+            ({displayedText}<span className="animate-pulse">|</span>)
           </p>
           <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Button

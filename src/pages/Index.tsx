@@ -1,5 +1,3 @@
-import { useState } from "react";
-import LoadingScreen from "@/components/LoadingScreen";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -10,24 +8,30 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
-    <>
-      {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
-      {!isLoading && (
-        <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-          <Navigation />
-          <Hero />
-          <About />
-          <Projects />
-          <Experience />
-          <Education />
-          <Contact />
-          <Footer />
-        </div>
-      )}
-    </>
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+      {/* Spline 3D Background for entire site */}
+      <div className="fixed inset-0 z-0">
+        <iframe
+          src="https://my.spline.design/distortingtypography-wijsIk1oyEBjaSdIpuZNDDHq/"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          className="w-full h-full spline-iframe"
+        />
+      </div>
+      
+      <div className="relative z-10">
+        <Navigation />
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Education />
+        <Contact />
+        <Footer />
+      </div>
+    </div>
   );
 };
 

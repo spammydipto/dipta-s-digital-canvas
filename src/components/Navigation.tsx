@@ -38,7 +38,7 @@ const Navigation = () => {
       }`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        <div className="nav-item text-2xl font-bold gradient-text">DK</div>
+        <a href="/" className="nav-item text-2xl font-bold gradient-text">Dipta</a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
