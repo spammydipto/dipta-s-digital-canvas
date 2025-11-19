@@ -100,7 +100,7 @@ const Contact = () => {
               <h3 className="text-xl font-bold mb-4 text-foreground">Connect with me</h3>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/diptakmondal2001"
+                  href="https://github.com/diptakumar2001"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 glass rounded-xl hover:bg-primary/10 hover:glow-cyan transition-all duration-300"
@@ -108,7 +108,7 @@ const Contact = () => {
                   <Github className="w-6 h-6 text-primary" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/dipta-kumar-mondal"
+                  href="https://www.linkedin.com/in/dipta-kumar-mondal-02089b26a/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 glass rounded-xl hover:bg-secondary/10 hover:glow-purple transition-all duration-300"
@@ -116,7 +116,7 @@ const Contact = () => {
                   <Linkedin className="w-6 h-6 text-secondary" />
                 </a>
                 <a
-                  href="https://instagram.com/diptakmondal"
+                  href="https://instagram.com/dipto_mondal1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 glass rounded-xl hover:bg-accent/10 hover:glow-pink transition-all duration-300"
