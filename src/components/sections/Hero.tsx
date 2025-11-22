@@ -65,21 +65,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Bio Paragraph */}
-          <p
-            ref={subtitleRef as any}
-            className="reveal text-base sm:text-lg md:text-xl text-muted-foreground/80 leading-relaxed max-w-[780px]"
-            style={{ lineHeight: "1.7" }}
-          >
-            I am a third-year Computer Science student at Acadia University, 
-            originally from a small town Kolkata, India. Growing up there helped 
-            me stay deeply connected to my culture and religion. At the same time, 
-            my passion for technology has always driven me to explore, learn, and 
-            build. I love solving real-world problems through code, and I'm always 
-            excited to learn new tools and technologies. Outside of academics and 
-            programming, riding motorcycles is one of my favorite hobbies.
-          </p>
-
           {/* CTA Buttons */}
           <div
             ref={ctaRef as any}
