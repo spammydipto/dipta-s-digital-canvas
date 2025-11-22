@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ExternalLink, Github, Globe } from "lucide-react";
+import { ExternalLink, Github, Globe, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -100,6 +100,18 @@ const Projects = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -129,9 +141,25 @@ const Projects = () => {
           <span className="gradient-text">Projects</span>
         </h2>
         
-        <p className="text-center text-muted-foreground text-sm sm:text-base mb-8 sm:mb-12 max-w-2xl mx-auto">
-          Scroll to explore my portfolio →
-        </p>
+        <div className="flex items-center justify-center gap-4 mb-8 sm:mb-12">
+          <button
+            onClick={scrollLeft}
+            className="p-2 rounded-full glass hover:bg-primary/20 transition-all"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-6 h-6 text-primary" />
+          </button>
+          <p className="text-center text-muted-foreground text-sm sm:text-base">
+            Scroll to explore my portfolio
+          </p>
+          <button
+            onClick={scrollRight}
+            className="p-2 rounded-full glass hover:bg-primary/20 transition-all"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-6 h-6 text-primary" />
+          </button>
+        </div>
 
         <div
           ref={scrollRef}
@@ -140,7 +168,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="project-card min-w-[280px] sm:min-w-[320px] md:min-w-[380px] glass rounded-2xl sm:rounded-3xl overflow-hidden group snap-center flex-shrink-0 cursor-pointer"
+              className="project-card min-w-[240px] sm:min-w-[280px] md:min-w-[320px] glass rounded-2xl sm:rounded-3xl overflow-hidden group snap-center flex-shrink-0 cursor-pointer"
               onClick={() => setSelectedProject(index)}
             >
               <div className="relative overflow-hidden aspect-video">
