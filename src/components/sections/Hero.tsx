@@ -34,60 +34,41 @@ const Hero = () => {
     >
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
-        <div className="max-w-[880px] mx-auto lg:mx-0 space-y-6 sm:space-y-8">
-          {/* Overline */}
-          <p
-            ref={heroRef as any}
-            className="reveal text-sm sm:text-base text-muted-foreground tracking-wide uppercase"
-            aria-label="Introduction"
-          >
-            Hi, I'm Dipta
-          </p>
-
-          {/* Main Headline */}
-          <h1
-            ref={heroRef as any}
-            className="reveal text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground"
-            style={{
-              fontSize: "clamp(2.5rem, 8vw, 5rem)",
-              lineHeight: "1.1",
-            }}
-          >
-            A Computer Science Student{" "}
-            <span className="text-primary block mt-2">
-              Building Solutions
-            </span>
-          </h1>
-
-          {/* Typewriter Role */}
+        <div className="max-w-[880px] mx-auto lg:mx-0 space-y-4 sm:space-y-6">
+          {/* Main Headline with Typewriter */}
           <div
-            ref={subtitleRef as any}
-            className="reveal text-xl sm:text-2xl md:text-3xl text-muted-foreground font-light min-h-[2.5rem]"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
+            ref={heroRef as any}
+            className="reveal"
           >
-            {displayedText}
-            <span className="animate-pulse text-primary">|</span>
+            <h1
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight text-foreground mb-4"
+              style={{
+                fontSize: "clamp(3rem, 10vw, 6rem)",
+                lineHeight: "1.1",
+              }}
+            >
+              Hi, I'm <span className="gradient-text">Dipta</span>,
+            </h1>
+            
+            {/* Typewriter Role */}
+            <div
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-muted-foreground min-h-[3rem] sm:min-h-[4rem]"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              style={{
+                fontSize: "clamp(1.5rem, 6vw, 3rem)",
+              }}
+            >
+              {displayedText}
+              <span className="animate-pulse text-primary">|</span>
+            </div>
           </div>
-
-          {/* Supporting Paragraph */}
-          <p
-            ref={subtitleRef as any}
-            className="reveal text-base sm:text-lg md:text-xl text-muted-foreground/80 leading-relaxed max-w-[680px]"
-            style={{ lineHeight: "1.7" }}
-          >
-            I am a third-year Computer Science student at Acadia University,
-            originally from Kolkata, India. Growing up there helped me stay
-            deeply connected to my culture and religion. At the same time, my
-            passion for technology has always driven me to explore, learn, and
-            build.
-          </p>
 
           {/* CTA Buttons */}
           <div
             ref={ctaRef as any}
-            className="reveal flex flex-col sm:flex-row gap-4 pt-4"
+            className="reveal flex flex-col sm:flex-row gap-4 pt-6 sm:pt-8"
           >
             <a
               href="#about"
