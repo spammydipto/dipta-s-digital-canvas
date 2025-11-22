@@ -2,15 +2,17 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import {
   Code2,
   Database,
-  Palette,
-  Server,
-  Smartphone,
   Terminal,
   Award,
   GraduationCap,
   Briefcase,
   Trophy,
 } from "lucide-react";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const About = () => {
   const headingRef = useScrollReveal({ delay: 0 });
@@ -19,12 +21,47 @@ const About = () => {
   const skillsRef = useScrollReveal({ delay: 300 });
 
   const skills = [
-    { name: "Frontend", icon: Code2 },
-    { name: "Backend", icon: Server },
-    { name: "Database", icon: Database },
-    { name: "Mobile", icon: Smartphone },
-    { name: "UI/UX", icon: Palette },
-    { name: "DevOps", icon: Terminal },
+    { 
+      name: "Programming & Development", 
+      icon: Code2,
+      technologies: [
+        "Java",
+        "Python",
+        "C",
+        "JavaScript",
+        "React",
+        "HTML/CSS",
+        "Data Structures & Algorithms"
+      ]
+    },
+    { 
+      name: "Databases & Tools", 
+      icon: Database,
+      technologies: [
+        "SQL",
+        "Git",
+        "Linux",
+        "Pandas",
+        "NumPy"
+      ]
+    },
+    { 
+      name: "Development Environment", 
+      icon: Terminal,
+      technologies: [
+        "VS Code",
+        "Linux",
+        "Windows",
+        "GitHub"
+      ]
+    },
+    { 
+      name: "Productivity", 
+      icon: Briefcase,
+      technologies: [
+        "MS Office (Word, Excel, PowerPoint, Outlook)"
+      ]
+    },
   ];
 
   const milestones = [
@@ -127,23 +164,37 @@ const About = () => {
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-foreground">
             Tech Stack
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {skills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="skill-item glass p-6 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-105 hover:bg-primary/10 transition-all duration-300 touch-manipulation group"
-                style={{
-                  animationDelay: `${index * 0.05}s`,
-                }}
-              >
-                <skill.icon 
-                  className="w-8 h-8 sm:w-10 sm:h-10 text-primary group-hover:scale-110 transition-transform" 
-                  aria-hidden="true"
-                />
-                <span className="text-sm sm:text-base font-medium text-foreground">
-                  {skill.name}
-                </span>
-              </div>
+              <HoverCard key={skill.name}>
+                <HoverCardTrigger asChild>
+                  <div
+                    className="skill-item glass p-6 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-105 hover:bg-primary/10 transition-all duration-300 touch-manipulation group cursor-pointer"
+                    style={{
+                      animationDelay: `${index * 0.05}s`,
+                    }}
+                  >
+                    <skill.icon 
+                      className="w-8 h-8 sm:w-10 sm:h-10 text-primary group-hover:scale-110 transition-transform" 
+                      aria-hidden="true"
+                    />
+                    <span className="text-sm sm:text-base font-medium text-foreground text-center">
+                      {skill.name}
+                    </span>
+                  </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-64 glass">
+                  <h4 className="text-sm font-semibold mb-3 text-foreground">{skill.name}</h4>
+                  <ul className="space-y-2">
+                    {skill.technologies.map((tech) => (
+                      <li key={tech} className="text-sm text-muted-foreground flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>{tech}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </HoverCardContent>
+              </HoverCard>
             ))}
           </div>
         </div>
