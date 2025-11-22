@@ -7,14 +7,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const useLenis = () => {
   useEffect(() => {
+    // Detect mobile device
+    const isMobile = window.innerWidth < 768;
+    
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: isMobile ? 0.8 : 1.2, // Faster on mobile
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      smoothWheel: !isMobile, // Disable smooth wheel on mobile
+      wheelMultiplier: isMobile ? 0.5 : 1,
+      touchMultiplier: isMobile ? 1.5 : 2,
       infinite: false,
     });
 

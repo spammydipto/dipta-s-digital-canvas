@@ -1,4 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useState } from "react";
 import {
   Code2,
   Database,
@@ -13,12 +14,22 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const About = () => {
   const headingRef = useScrollReveal({ delay: 0 });
   const textRef = useScrollReveal({ delay: 100 });
   const timelineRef = useScrollReveal({ delay: 200 });
   const skillsRef = useScrollReveal({ delay: 300 });
+  const isMobile = useIsMobile();
+  const [selectedSkill, setSelectedSkill] = useState<number | null>(null);
 
   const skills = [
     { 
@@ -165,38 +176,93 @@ const About = () => {
             Tech Stack
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {skills.map((skill, index) => (
-              <HoverCard key={skill.name}>
-                <HoverCardTrigger asChild>
+            {skills.map((skill, index) => {
+              if (isMobile) {
+                // Mobile: Click to open dialog
+                return (
                   <div
-                    className="skill-item glass p-6 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-105 hover:bg-primary/10 transition-all duration-300 touch-manipulation group cursor-pointer"
+                    key={skill.name}
+                    onClick={() => setSelectedSkill(index)}
+                    className="skill-item glass p-6 rounded-xl flex flex-col items-center justify-center gap-3 active:scale-95 hover:bg-primary/10 transition-all duration-300 touch-manipulation cursor-pointer min-h-[44px]"
                     style={{
                       animationDelay: `${index * 0.05}s`,
                     }}
                   >
                     <skill.icon 
-                      className="w-8 h-8 sm:w-10 sm:h-10 text-primary group-hover:scale-110 transition-transform" 
+                      className="w-8 h-8 sm:w-10 sm:h-10 text-primary" 
                       aria-hidden="true"
                     />
                     <span className="text-sm sm:text-base font-medium text-foreground text-center">
                       {skill.name}
                     </span>
                   </div>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-64 glass">
-                  <h4 className="text-sm font-semibold mb-3 text-foreground">{skill.name}</h4>
-                  <ul className="space-y-2">
-                    {skill.technologies.map((tech) => (
-                      <li key={tech} className="text-sm text-muted-foreground flex items-start">
-                        <span className="mr-2">•</span>
+                );
+              }
+
+              // Desktop: Hover card
+              return (
+                <HoverCard key={skill.name}>
+                  <HoverCardTrigger asChild>
+                    <div
+                      className="skill-item glass p-6 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-105 hover:bg-primary/10 transition-all duration-300 touch-manipulation group cursor-pointer"
+                      style={{
+                        animationDelay: `${index * 0.05}s`,
+                      }}
+                    >
+                      <skill.icon 
+                        className="w-8 h-8 sm:w-10 sm:h-10 text-primary group-hover:scale-110 transition-transform" 
+                        aria-hidden="true"
+                      />
+                      <span className="text-sm sm:text-base font-medium text-foreground text-center">
+                        {skill.name}
+                      </span>
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-64 glass">
+                    <h4 className="text-sm font-semibold mb-3 text-foreground">{skill.name}</h4>
+                    <ul className="space-y-2">
+                      {skill.technologies.map((tech) => (
+                        <li key={tech} className="text-sm text-muted-foreground flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{tech}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </HoverCardContent>
+                </HoverCard>
+              );
+            })}
+          </div>
+          
+          {/* Mobile Tech Stack Dialog */}
+          <Dialog open={selectedSkill !== null} onOpenChange={() => setSelectedSkill(null)}>
+            <DialogContent className="glass max-w-md">
+              {selectedSkill !== null && (
+                <>
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold text-foreground flex items-center gap-3">
+                      {(() => {
+                        const SkillIcon = skills[selectedSkill].icon;
+                        return <SkillIcon className="w-6 h-6 text-primary" />;
+                      })()}
+                      {skills[selectedSkill].name}
+                    </DialogTitle>
+                    <DialogDescription className="sr-only">
+                      Technologies in {skills[selectedSkill].name}
+                    </DialogDescription>
+                  </DialogHeader>
+                  <ul className="space-y-3 mt-4">
+                    {skills[selectedSkill].technologies.map((tech) => (
+                      <li key={tech} className="text-base text-muted-foreground flex items-start">
+                        <span className="mr-3 text-primary">•</span>
                         <span>{tech}</span>
                       </li>
                     ))}
                   </ul>
-                </HoverCardContent>
-              </HoverCard>
-            ))}
-          </div>
+                </>
+              )}
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>

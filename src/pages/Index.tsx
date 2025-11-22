@@ -13,8 +13,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
-      {/* Spline 3D Background for entire site */}
-      <div className="fixed inset-0 z-0">
+      {/* Spline 3D Background - Hidden on mobile for performance */}
+      <div className="fixed inset-0 z-0 hidden md:block">
         <iframe
           src="https://my.spline.design/distortingtypography-wijsIk1oyEBjaSdIpuZNDDHq/"
           frameBorder="0"
@@ -23,6 +23,9 @@ const Index = () => {
           className="w-full h-full spline-iframe"
         />
       </div>
+      
+      {/* Gradient background for mobile */}
+      <div className="fixed inset-0 z-0 md:hidden bg-gradient-to-br from-background via-background to-primary/5" />
       
       <div className="relative z-10">
         <Navigation />

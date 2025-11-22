@@ -142,26 +142,34 @@ const Projects = () => {
         </h2>
         
         <div className="relative">
+          {/* Scroll Indicator - Mobile */}
+          <div className="md:hidden text-center mb-4">
+            <p className="text-sm text-muted-foreground animate-pulse flex items-center justify-center gap-2">
+              Swipe to explore <ChevronRight className="w-4 h-4" />
+            </p>
+          </div>
+
           {/* Navigation Buttons */}
           <button
             onClick={scrollLeft}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full glass hover:bg-card/50 transition-all duration-300 glow-cyan hidden md:block"
+            className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full glass hover:bg-card/50 transition-all duration-300 glow-cyan touch-manipulation min-h-[44px] min-w-[44px]"
             aria-label="Scroll left"
           >
-            <ChevronLeft className="w-6 h-6 text-neon-cyan" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-neon-cyan" />
           </button>
           <button
             onClick={scrollRight}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full glass hover:bg-card/50 transition-all duration-300 glow-cyan hidden md:block"
+            className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full glass hover:bg-card/50 transition-all duration-300 glow-cyan touch-manipulation min-h-[44px] min-w-[44px]"
             aria-label="Scroll right"
           >
-            <ChevronRight className="w-6 h-6 text-neon-cyan" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-neon-cyan" />
           </button>
 
           {/* Scrollable Container */}
           <div
             ref={scrollRef}
-            className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 sm:pb-8 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-primary scrollbar-track-card"
+            className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 sm:pb-8 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-primary scrollbar-track-card touch-pan-x"
+            style={{ WebkitOverflowScrolling: 'touch' }}
           >
           {projects.map((project, index) => (
             <div
