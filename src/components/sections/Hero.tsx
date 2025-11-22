@@ -1,6 +1,12 @@
 import { ArrowDown } from "lucide-react";
 import { useTypewriterRotate } from "@/hooks/useTypewriterRotate";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useParallax } from "@/hooks/useParallax";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const roles = [
@@ -22,9 +28,36 @@ const Hero = () => {
   const heroRef = useScrollReveal({ delay: 0 });
   const subtitleRef = useScrollReveal({ delay: 100 });
   const ctaRef = useScrollReveal({ delay: 200 });
+  const parallaxRef = useParallax({ speed: 0.3 }); // Slow parallax for hero content
+
+  useEffect(() => {
+    // Fade out hero as you scroll
+    const heroSection = document.getElementById("home");
+    if (heroSection) {
+      gsap.to(heroSection, {
+        opacity: 0.3,
+        scale: 0.95,
+        scrollTrigger: {
+          trigger: heroSection,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+  }, []);
 
   const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("about");
+    if (element && (window as any).lenis) {
+      (window as any).lenis.scrollTo(element, {
+        offset: -80,
+        duration: 1.8,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -33,7 +66,7 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6"
     >
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6">
+      <div ref={parallaxRef} className="relative z-10 container mx-auto px-4 sm:px-6">
         <div className="max-w-[880px] mx-auto lg:mx-0 space-y-4 sm:space-y-6">
           {/* Main Headline with Typewriter */}
           <div
@@ -70,28 +103,33 @@ const Hero = () => {
             ref={ctaRef as any}
             className="reveal flex flex-col sm:flex-row gap-4 pt-6 sm:pt-8"
           >
-            <a
-              href="#about"
+            <button
               onClick={(e) => {
                 e.preventDefault();
                 scrollToAbout();
               }}
-              className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 hover:scale-105 transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               View My Work
-            </a>
-            <a
-              href="#contact"
+            </button>
+            <button
               onClick={(e) => {
                 e.preventDefault();
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
+                const element = document.getElementById("contact");
+                if (element && (window as any).lenis) {
+                  (window as any).lenis.scrollTo(element, {
+                    offset: -80,
+                    duration: 1.8,
+                    easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                  });
+                } else if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
               }}
-              className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium border border-border bg-transparent text-foreground rounded-md hover:bg-accent hover:text-accent-foreground transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium border border-border bg-transparent text-foreground rounded-md hover:bg-accent hover:text-accent-foreground hover:scale-105 transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Get In Touch
-            </a>
+            </button>
           </div>
         </div>
 

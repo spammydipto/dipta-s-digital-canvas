@@ -113,25 +113,55 @@ const Projects = () => {
   };
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".projects-section",
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    tl.fromTo(
+    gsap.fromTo(
       ".projects-heading",
-      { opacity: 0, y: 60, filter: "blur(10px)" },
-      { opacity: 1, y: 0, filter: "blur(0px)", duration: 1, ease: "power2.out" }
-    ).fromTo(
-      ".project-card",
-      { opacity: 0, scale: 0.9, y: 40 },
-      { opacity: 1, scale: 1, y: 0, stagger: 0.15, duration: 0.8, ease: "power2.out" },
-      "-=0.5"
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".projects-heading",
+          start: "top 80%",
+        },
+      }
     );
+
+    gsap.fromTo(
+      ".project-card",
+      { opacity: 0, y: 60, scale: 0.9, rotateX: 15 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotateX: 0,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".project-card",
+          start: "top 85%",
+        },
+      }
+    );
+
+    // Parallax effect on project images
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) {
+      document.querySelectorAll(".project-image").forEach((img) => {
+        gsap.to(img, {
+          y: -30,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      });
+    }
   }, []);
 
   return (
@@ -182,7 +212,7 @@ const Projects = () => {
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  className="project-image w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
                   <div className="flex flex-wrap gap-2 sm:gap-3">
