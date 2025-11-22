@@ -11,14 +11,16 @@ export const useLenis = () => {
     const isMobile = window.innerWidth < 768;
     
     const lenis = new Lenis({
-      duration: isMobile ? 0.8 : 1.2, // Faster on mobile
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: isMobile ? 0.8 : 1.8, // Slower for buttery smooth feel on desktop
+      easing: (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1), // Cubic easing for weight
+      lerp: 0.1, // Smooth interpolation
       orientation: "vertical",
       gestureOrientation: "vertical",
-      smoothWheel: !isMobile, // Disable smooth wheel on mobile
-      wheelMultiplier: isMobile ? 0.5 : 1,
+      smoothWheel: true, // Enable for both
+      wheelMultiplier: isMobile ? 0.5 : 1.2,
       touchMultiplier: isMobile ? 1.5 : 2,
       infinite: false,
+      syncTouch: true, // Better touch synchronization
     });
 
     // Sync Lenis with GSAP ScrollTrigger
