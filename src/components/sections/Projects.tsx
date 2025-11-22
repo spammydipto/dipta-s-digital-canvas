@@ -102,13 +102,13 @@ const Projects = () => {
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
     }
   };
 
@@ -141,30 +141,28 @@ const Projects = () => {
           <span className="gradient-text">Projects</span>
         </h2>
         
-        <div className="flex items-center justify-center gap-4 mb-8 sm:mb-12">
+        <div className="relative">
+          {/* Navigation Buttons */}
           <button
             onClick={scrollLeft}
-            className="p-2 rounded-full glass hover:bg-primary/20 transition-all"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full glass hover:bg-card/50 transition-all duration-300 glow-cyan hidden md:block"
             aria-label="Scroll left"
           >
-            <ChevronLeft className="w-6 h-6 text-primary" />
+            <ChevronLeft className="w-6 h-6 text-neon-cyan" />
           </button>
-          <p className="text-center text-muted-foreground text-sm sm:text-base">
-            Scroll to explore my portfolio
-          </p>
           <button
             onClick={scrollRight}
-            className="p-2 rounded-full glass hover:bg-primary/20 transition-all"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full glass hover:bg-card/50 transition-all duration-300 glow-cyan hidden md:block"
             aria-label="Scroll right"
           >
-            <ChevronRight className="w-6 h-6 text-primary" />
+            <ChevronRight className="w-6 h-6 text-neon-cyan" />
           </button>
-        </div>
 
-        <div
-          ref={scrollRef}
-          className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 sm:pb-8 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-primary scrollbar-track-card px-4 sm:px-0 -mx-4 sm:mx-0"
-        >
+          {/* Scrollable Container */}
+          <div
+            ref={scrollRef}
+            className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 sm:pb-8 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-primary scrollbar-track-card"
+          >
           {projects.map((project, index) => (
             <div
               key={index}
@@ -202,6 +200,7 @@ const Projects = () => {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
 
