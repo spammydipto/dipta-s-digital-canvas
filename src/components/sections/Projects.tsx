@@ -167,7 +167,7 @@ const Projects = () => {
             <div
               key={index}
               className="project-card w-[420px] h-[520px] glass rounded-2xl sm:rounded-3xl overflow-hidden group snap-center flex-shrink-0 cursor-pointer flex flex-col"
-              onClick={() => setSelectedProject(index)}
+              onClick={() => project.githubLink === "#" && setSelectedProject(index)}
             >
               <div className="relative overflow-hidden h-[280px] flex-shrink-0">
                 <img
@@ -177,9 +177,22 @@ const Projects = () => {
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
-                  <button className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base touch-manipulation">
-                    View Details <ExternalLink className="w-4 h-4" />
-                  </button>
+                  {project.githubLink !== "#" ? (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base touch-manipulation hover:text-neon-cyan transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github className="w-4 h-4" />
+                      View on GitHub
+                    </a>
+                  ) : (
+                    <button className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base touch-manipulation">
+                      View Details <ExternalLink className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
               </div>
               <div className="p-5 sm:p-6 space-y-3 sm:space-y-4 flex-1 flex flex-col">
