@@ -47,7 +47,7 @@ const projects = [
       "Donor and recipient management"
     ],
     githubLink: "https://github.com/diptakumar2001/FoodLoop",
-    liveLink: "#",
+    liveLink: "https://foodloop-ai-amartyakarmakar.replit.app/",
   },
   {
     title: "Do I Need to See Doctor",
