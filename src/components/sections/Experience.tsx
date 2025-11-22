@@ -47,11 +47,11 @@ const Experience = () => {
                 <p className="text-xs sm:text-sm text-muted-foreground">Sept 2023 - Present</p>
               </div>
             </div>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Thriving in a fast-paced environment through exceptional teamwork, precise organization, 
-              and meticulous attention to detail. Skilled in multitasking and maintaining smooth customer 
-              flow while ensuring consistent quality and efficiency.
-            </p>
+            <ul className="text-sm sm:text-base text-muted-foreground leading-relaxed space-y-2 list-disc list-inside">
+              <li>Prepared and delivered high-quality foods with restaurant standards, ensuring consistency and taste.</li>
+              <li>Trained and mentored new team members on kitchen procedures, workflow efficiency and safety.</li>
+              <li>Promoted to Shift Supervisor, lead kitchen team during shifts, ensure all tasks are being done efficiently and safety standards in a fast-paced environment.</li>
+            </ul>
           </div>
 
           <div className="experience-card glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-card/50 transition-all duration-300 group">
@@ -61,15 +61,16 @@ const Experience = () => {
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-foreground">Store Associate</h3>
-                <p className="text-sm sm:text-base text-secondary font-medium">Independent Grocer</p>
+                <p className="text-sm sm:text-base text-secondary font-medium">Your Independent Grocer</p>
                 <p className="text-xs sm:text-sm text-muted-foreground">Feb 2024 - May 2024</p>
               </div>
             </div>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Delivered exceptional customer service while managing stock inventory with precision. 
-              Demonstrated strong communication skills and accuracy in all transactions, contributing 
-              to a positive shopping experience for customers.
-            </p>
+            <ul className="text-sm sm:text-base text-muted-foreground leading-relaxed space-y-2 list-disc list-inside">
+              <li>Accurately processed cash and credit transactions while ensuring attention to detail and efficiency.</li>
+              <li>Provided excellent customer support while ensuring a positive checkout experience.</li>
+              <li>Trained and support new team members, developing leadership and mentoring skills.</li>
+              <li>Maintained a clean, organized, and efficient work environment.</li>
+            </ul>
           </div>
         </div>
       </div>
