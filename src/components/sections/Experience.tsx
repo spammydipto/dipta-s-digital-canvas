@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Briefcase, ShoppingCart } from "lucide-react";
+import { Briefcase, ShoppingCart, GraduationCap } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,6 +36,23 @@ const Experience = () => {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="experience-card glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-card/50 transition-all duration-300 group">
+            <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-neon-purple/10 group-hover:glow-purple transition-all duration-300 flex-shrink-0">
+                <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-neon-purple" />
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">Cache Tutor</h3>
+                <p className="text-sm sm:text-base text-primary font-medium">Acadia University</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Oct 2024 - Dec 2024</p>
+              </div>
+            </div>
+            <ul className="text-sm sm:text-base text-muted-foreground leading-relaxed space-y-2 list-disc list-inside">
+              <li>Tutored university students in Java, Python and DSA by explaining complex programming concepts into clear, practical explanations.</li>
+              <li>Supported learners in developing coding proficiency and problem-solving skills, earning positive feedback for clarity, communication and support.</li>
+            </ul>
+          </div>
+
           <div className="experience-card glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-card/50 transition-all duration-300 group">
             <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
               <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-neon-cyan/10 group-hover:glow-cyan transition-all duration-300 flex-shrink-0">
