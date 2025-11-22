@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { GraduationCap, Award, Trophy, ChevronLeft, ChevronRight } from "lucide-react";
+import { GraduationCap, Award, Trophy, ChevronLeft, ChevronRight, Code, Braces } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,6 +106,60 @@ const Education = () => {
                     <p className="text-sm sm:text-base font-semibold text-foreground">Acadia Excellence Scholarship</p>
                     <p className="text-xs sm:text-sm text-muted-foreground">Merit-Based Scholarship Award</p>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="education-card w-[340px] sm:w-[420px] glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 hover:bg-card/50 transition-all duration-300 snap-center flex-shrink-0">
+              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-neon-cyan to-neon-blue glow-cyan flex-shrink-0">
+                  <Code className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-background" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-1 sm:mb-2">100 Days of Code – Python Bootcamp</h3>
+                  <p className="text-lg sm:text-xl text-primary font-medium mb-0.5 sm:mb-1">Dr. Angela Yu (Udemy)</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">Certification</p>
+                </div>
+              </div>
+
+              <div className="space-y-4 sm:space-y-6">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  Completed 100 days of hands-on projects covering Python, OOP, APIs, automation, and web development.
+                </p>
+                
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-primary/10 text-primary rounded-full border border-primary/20">Python</span>
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-primary/10 text-primary rounded-full border border-primary/20">Flask</span>
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-primary/10 text-primary rounded-full border border-primary/20">Automation</span>
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-primary/10 text-primary rounded-full border border-primary/20">APIs</span>
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-primary/10 text-primary rounded-full border border-primary/20">OOP</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="education-card w-[340px] sm:w-[420px] glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 hover:bg-card/50 transition-all duration-300 snap-center flex-shrink-0">
+              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-neon-purple to-neon-pink glow-purple flex-shrink-0">
+                  <Braces className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-background" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-1 sm:mb-2">DSA with Java</h3>
+                  <p className="text-lg sm:text-xl text-primary font-medium mb-0.5 sm:mb-1">Apna College</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">Certification</p>
+                </div>
+              </div>
+
+              <div className="space-y-4 sm:space-y-6">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  Learned data structures, algorithms, and problem-solving using Java; includes recursion, backtracking, trees, and graph algorithms.
+                </p>
+                
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-secondary/10 text-secondary rounded-full border border-secondary/20">Java</span>
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-secondary/10 text-secondary rounded-full border border-secondary/20">DSA</span>
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-secondary/10 text-secondary rounded-full border border-secondary/20">Time Complexity</span>
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-secondary/10 text-secondary rounded-full border border-secondary/20">DP</span>
+                  <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-secondary/10 text-secondary rounded-full border border-secondary/20">Graphs</span>
                 </div>
               </div>
             </div>
