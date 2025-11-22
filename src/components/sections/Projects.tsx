@@ -1,7 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github, Globe } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import project1 from "@/assets/project-1.png";
 import project2 from "@/assets/project-2.png";
 import project3 from "@/assets/project-3.png";
@@ -15,43 +22,83 @@ const projects = [
   {
     title: "FoodLoop",
     description: "An AI-driven website to reduce food waste by connecting NGOs and food donors",
+    fullDescription: "FoodLoop is an innovative platform that leverages artificial intelligence to bridge the gap between food donors and NGOs. The system intelligently matches surplus food with organizations in need, reducing waste while helping communities. Features include real-time inventory tracking, automated matching algorithms, and impact analytics.",
     image: project1,
-    tech: ["React", "AI", "Node.js"],
+    tech: ["React", "AI", "Node.js", "MongoDB", "Express"],
+    features: [
+      "AI-powered matching algorithm",
+      "Real-time inventory management",
+      "Donation tracking and analytics",
+      "Mobile-responsive interface"
+    ],
+    githubLink: "https://github.com/diptakumar2001",
+    liveLink: "#",
   },
   {
     title: "Guessing Game",
     description: "A fun web app where players guess the object name based on a displayed picture",
+    fullDescription: "An interactive web application that challenges players to identify objects from images. The game features multiple difficulty levels, a scoring system, and a collection of diverse image categories. Built with vanilla JavaScript to demonstrate core programming concepts and DOM manipulation.",
     image: project2,
     tech: ["JavaScript", "HTML", "CSS"],
+    features: [
+      "Multiple difficulty levels",
+      "Score tracking system",
+      "Timer functionality",
+      "Diverse image categories"
+    ],
+    githubLink: "https://github.com/diptakumar2001",
+    liveLink: "#",
   },
   {
     title: "Snake Game",
     description: "Classic Snake game implemented to strengthen OOP concepts and core coding fundamentals",
+    fullDescription: "A modern take on the classic Snake game, built in Java to demonstrate object-oriented programming principles. The project showcases inheritance, encapsulation, and design patterns while providing an engaging gaming experience with smooth controls and progressive difficulty.",
     image: project3,
-    tech: ["Java", "OOP", "Game Dev"],
+    tech: ["Java", "OOP", "Swing"],
+    features: [
+      "Object-oriented architecture",
+      "Collision detection system",
+      "Progressive difficulty",
+      "High score persistence"
+    ],
+    githubLink: "https://github.com/diptakumar2001",
+    liveLink: "#",
   },
   {
     title: "Coming Soon",
     description: "Exciting new project in development",
+    fullDescription: "Stay tuned for an exciting new project that's currently in development. More details will be revealed soon!",
     image: project4,
     tech: ["TBA"],
+    features: ["In Development"],
+    githubLink: "#",
+    liveLink: "#",
   },
   {
     title: "Coming Soon",
     description: "Exciting new project in development",
+    fullDescription: "Stay tuned for an exciting new project that's currently in development. More details will be revealed soon!",
     image: project5,
     tech: ["TBA"],
+    features: ["In Development"],
+    githubLink: "#",
+    liveLink: "#",
   },
   {
     title: "Coming Soon",
     description: "Exciting new project in development",
+    fullDescription: "Stay tuned for an exciting new project that's currently in development. More details will be revealed soon!",
     image: project6,
     tech: ["TBA"],
+    features: ["In Development"],
+    githubLink: "#",
+    liveLink: "#",
   },
 ];
 
 const Projects = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -89,7 +136,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="project-card min-w-[280px] sm:min-w-[320px] md:min-w-[380px] glass rounded-2xl sm:rounded-3xl overflow-hidden group snap-center flex-shrink-0"
+              className="project-card min-w-[280px] sm:min-w-[320px] md:min-w-[380px] glass rounded-2xl sm:rounded-3xl overflow-hidden group snap-center flex-shrink-0 cursor-pointer"
+              onClick={() => setSelectedProject(index)}
             >
               <div className="relative overflow-hidden aspect-video">
                 <img
@@ -100,7 +148,7 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
                   <button className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base touch-manipulation">
-                    View Project <ExternalLink className="w-4 h-4" />
+                    View Details <ExternalLink className="w-4 h-4" />
                   </button>
                 </div>
               </div>
@@ -124,6 +172,97 @@ const Projects = () => {
           ))}
         </div>
       </div>
+
+      {/* Project Detail Modal */}
+      <Dialog open={selectedProject !== null} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="glass max-w-3xl max-h-[90vh] overflow-y-auto">
+          {selectedProject !== null && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl sm:text-3xl font-bold gradient-text">
+                  {projects[selectedProject].title}
+                </DialogTitle>
+                <DialogDescription className="text-base sm:text-lg text-muted-foreground">
+                  {projects[selectedProject].description}
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-6 mt-4">
+                {/* Project Image */}
+                <div className="relative overflow-hidden rounded-xl aspect-video">
+                  <img
+                    src={projects[selectedProject].image}
+                    alt={projects[selectedProject].title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Full Description */}
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">About</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {projects[selectedProject].fullDescription}
+                  </p>
+                </div>
+
+                {/* Key Features */}
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Key Features</h3>
+                  <ul className="space-y-2">
+                    {projects[selectedProject].features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
+                        <span className="text-primary mt-1">•</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Tech Stack */}
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Tech Stack</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {projects[selectedProject].tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full border border-primary/20 glow-cyan"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Project Links */}
+                <div className="flex flex-wrap gap-3 pt-4 border-t border-border/50">
+                  {projects[selectedProject].githubLink !== "#" && (
+                    <a
+                      href={projects[selectedProject].githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-card hover:bg-card/80 text-foreground rounded-lg border border-border/50 transition-all hover:scale-105 touch-manipulation min-h-[44px]"
+                    >
+                      <Github className="w-5 h-5" />
+                      <span>View Code</span>
+                    </a>
+                  )}
+                  {projects[selectedProject].liveLink !== "#" && (
+                    <a
+                      href={projects[selectedProject].liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-all hover:scale-105 touch-manipulation min-h-[44px]"
+                    >
+                      <Globe className="w-5 h-5" />
+                      <span>Live Demo</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
