@@ -20,77 +20,77 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "FoodLoop",
-    description: "An AI-driven website to reduce food waste by connecting NGOs and food donors",
-    fullDescription: "FoodLoop is an innovative platform that leverages artificial intelligence to bridge the gap between food donors and NGOs. The system intelligently matches surplus food with organizations in need, reducing waste while helping communities. Features include real-time inventory tracking, automated matching algorithms, and impact analytics.",
+    title: "Guessing Game Web App",
+    description: "A CRUD-based interactive guessing game with database integration",
+    fullDescription: "A fun and interactive web application where players guess the object name based on displayed pictures. Built with PHP and MySQL, this project demonstrates full-stack development skills with database integration and dynamic content management.",
     image: project1,
-    tech: ["React", "AI", "Node.js", "MongoDB", "Express"],
+    tech: ["PHP", "MySQL", "JavaScript"],
     features: [
-      "AI-powered matching algorithm",
-      "Real-time inventory management",
-      "Donation tracking and analytics",
-      "Mobile-responsive interface"
-    ],
-    githubLink: "https://github.com/diptakumar2001",
-    liveLink: "#",
-  },
-  {
-    title: "Guessing Game",
-    description: "A fun web app where players guess the object name based on a displayed picture",
-    fullDescription: "An interactive web application that challenges players to identify objects from images. The game features multiple difficulty levels, a scoring system, and a collection of diverse image categories. Built with vanilla JavaScript to demonstrate core programming concepts and DOM manipulation.",
-    image: project2,
-    tech: ["JavaScript", "HTML", "CSS"],
-    features: [
-      "Multiple difficulty levels",
+      "CRUD operations with database",
+      "Interactive gameplay mechanics",
       "Score tracking system",
-      "Timer functionality",
-      "Diverse image categories"
+      "Responsive design"
     ],
-    githubLink: "https://github.com/diptakumar2001",
+    githubLink: "https://github.com/diptakumar2001/Guessing-Game",
     liveLink: "#",
   },
   {
-    title: "Snake Game",
-    description: "Classic Snake game implemented to strengthen OOP concepts and core coding fundamentals",
-    fullDescription: "A modern take on the classic Snake game, built in Java to demonstrate object-oriented programming principles. The project showcases inheritance, encapsulation, and design patterns while providing an engaging gaming experience with smooth controls and progressive difficulty.",
-    image: project3,
-    tech: ["Java", "OOP", "Swing"],
+    title: "FoodLoop",
+    description: "An AI-driven website to reduce food waste",
+    fullDescription: "FoodLoop is an innovative platform that leverages artificial intelligence to reduce food waste by connecting surplus food with those in need. The application features intelligent matching, real-time notifications, and impact tracking to make a difference in communities.",
+    image: project2,
+    tech: ["React", "Vite", "Tailwind CSS", "Node.js", "PostgreSQL"],
     features: [
-      "Object-oriented architecture",
-      "Collision detection system",
-      "Progressive difficulty",
-      "High score persistence"
+      "AI-powered food matching",
+      "Real-time notifications",
+      "Impact analytics dashboard",
+      "Donor and recipient management"
     ],
-    githubLink: "https://github.com/diptakumar2001",
+    githubLink: "https://github.com/diptakumar2001/FoodLoop",
     liveLink: "#",
   },
   {
-    title: "Coming Soon",
-    description: "Exciting new project in development",
-    fullDescription: "Stay tuned for an exciting new project that's currently in development. More details will be revealed soon!",
+    title: "Do I Need to See Doctor",
+    description: "A software to help people decide if they need medical attention",
+    fullDescription: "An intelligent health assessment tool that helps users determine whether they should seek medical attention based on their symptoms. This project aims to provide preliminary health guidance while encouraging proper medical care when needed.",
+    image: project3,
+    tech: ["Coming Soon"],
+    features: [
+      "Symptom analysis",
+      "Health recommendations",
+      "Emergency detection",
+      "Medical resource links"
+    ],
+    githubLink: "#",
+    liveLink: "#",
+  },
+  {
+    title: "Garbage Sorter",
+    description: "AI-powered software to sort garbage automatically",
+    fullDescription: "An innovative AI solution that takes mixed garbage and automatically sorts it into appropriate categories for recycling and disposal. This project aims to improve waste management efficiency and promote environmental sustainability.",
     image: project4,
-    tech: ["TBA"],
-    features: ["In Development"],
+    tech: ["Coming Soon"],
+    features: [
+      "AI-powered sorting",
+      "Multiple waste categories",
+      "Real-time processing",
+      "Environmental impact tracking"
+    ],
     githubLink: "#",
     liveLink: "#",
   },
   {
-    title: "Coming Soon",
-    description: "Exciting new project in development",
-    fullDescription: "Stay tuned for an exciting new project that's currently in development. More details will be revealed soon!",
+    title: "Neighboorbook",
+    description: "A platform to connect nearby neighborhoods",
+    fullDescription: "Neighboorbook is a community-focused platform designed to connect people in nearby neighborhoods. Share local events, services, and build stronger community bonds through digital connection.",
     image: project5,
-    tech: ["TBA"],
-    features: ["In Development"],
-    githubLink: "#",
-    liveLink: "#",
-  },
-  {
-    title: "Coming Soon",
-    description: "Exciting new project in development",
-    fullDescription: "Stay tuned for an exciting new project that's currently in development. More details will be revealed soon!",
-    image: project6,
-    tech: ["TBA"],
-    features: ["In Development"],
+    tech: ["Coming Soon"],
+    features: [
+      "Local event sharing",
+      "Neighborhood messaging",
+      "Service marketplace",
+      "Community building tools"
+    ],
     githubLink: "#",
     liveLink: "#",
   },
@@ -125,9 +125,13 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section min-h-screen py-16 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto">
-        <h2 className="projects-heading text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 sm:mb-16">
-          Featured <span className="gradient-text">Projects</span>
+        <h2 className="projects-heading text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 sm:mb-12">
+          <span className="gradient-text">Projects</span>
         </h2>
+        
+        <p className="text-center text-muted-foreground text-sm sm:text-base mb-8 sm:mb-12 max-w-2xl mx-auto">
+          Scroll to explore my portfolio →
+        </p>
 
         <div
           ref={scrollRef}
