@@ -50,14 +50,14 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="about-section min-h-screen py-20 px-6">
+    <section id="about" className="about-section min-h-screen py-16 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="about-heading text-5xl md:text-6xl font-bold text-center mb-12">
+        <h2 className="about-heading text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 sm:mb-12">
           About <span className="gradient-text">Me</span>
         </h2>
 
-        <div className="glass rounded-3xl p-8 md:p-12 mb-12">
-          <p className="about-text text-lg md:text-xl text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
+        <div className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-8 sm:mb-12">
+          <p className="about-text text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
             I'm a passionate Full Stack Web Developer specializing in creating immersive digital experiences. 
             With expertise in modern web technologies and a keen eye for design, I transform ideas into 
             beautiful, functional applications. My approach combines technical excellence with creative 
@@ -66,17 +66,17 @@ const About = () => {
         </div>
 
         <div>
-          <h3 className="text-3xl font-bold text-center mb-8 gradient-text">Tech Stack</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <h3 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 gradient-text">Tech Stack</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
             {skills.map((skill, index) => (
               <div
                 key={skill.name}
-                className="skill-item glass rounded-2xl p-6 text-center hover:bg-card/50 transition-all duration-300 group"
+                className="skill-item glass rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:bg-card/50 transition-all duration-300 group touch-manipulation"
               >
-                <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
+                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300">
                   {skill.icon}
                 </div>
-                <p className="text-foreground font-medium">{skill.name}</p>
+                <p className="text-sm sm:text-base text-foreground font-medium">{skill.name}</p>
               </div>
             ))}
           </div>

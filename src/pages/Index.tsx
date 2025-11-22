@@ -6,8 +6,11 @@ import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import { useLenis } from "@/hooks/useLenis";
 
 const Index = () => {
+  useLenis();
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
       {/* Spline 3D Background for entire site */}

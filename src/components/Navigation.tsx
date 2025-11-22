@@ -34,19 +34,19 @@ const Navigation = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? "glass border-b border-border/50 py-4" : "py-6"
+        scrolled ? "glass border-b border-border/50 py-3 sm:py-4" : "py-4 sm:py-6"
       }`}
     >
-      <nav className="container mx-auto px-6 flex items-center justify-between">
-        <a href="/" className="nav-item text-2xl font-bold gradient-text">Dipta</a>
+      <nav className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <a href="/" className="nav-item text-xl sm:text-2xl font-bold gradient-text touch-manipulation">Dipta</a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {["Home", "About", "Projects", "Experience", "Education", "Contact"].map((item, index) => (
             <button
               key={item}
               onClick={() => scrollToSection(item.toLowerCase())}
-              className="nav-item text-foreground/80 hover:text-primary transition-colors duration-300"
+              className="nav-item text-sm lg:text-base text-foreground/80 hover:text-primary transition-colors duration-300 touch-manipulation"
               style={{ opacity: 0 }}
             >
               {item}
@@ -58,23 +58,24 @@ const Navigation = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden nav-item"
+          className="md:hidden nav-item min-h-[44px] min-w-[44px] touch-manipulation"
           onClick={() => setIsOpen(!isOpen)}
           style={{ opacity: 0 }}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
         </Button>
       </nav>
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden glass border-t border-border/50 mt-4">
-          <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden glass border-t border-border/50 mt-3 sm:mt-4">
+          <div className="container mx-auto px-4 sm:px-6 py-4 flex flex-col gap-3 sm:gap-4">
             {["Home", "About", "Projects", "Experience", "Education", "Contact"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300 text-left"
+                className="text-foreground/80 hover:text-primary transition-colors duration-300 text-left py-2 touch-manipulation min-h-[44px]"
               >
                 {item}
               </button>

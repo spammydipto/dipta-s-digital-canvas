@@ -29,43 +29,43 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="experience-section min-h-screen py-20 px-6">
+    <section id="experience" className="experience-section min-h-screen py-16 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="experience-heading text-5xl md:text-6xl font-bold text-center mb-16">
+        <h2 className="experience-heading text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 sm:mb-16">
           Work <span className="gradient-text">Experience</span>
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="experience-card glass rounded-3xl p-8 hover:bg-card/50 transition-all duration-300 group">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 rounded-2xl bg-neon-cyan/10 group-hover:glow-cyan transition-all duration-300">
-                <Briefcase className="w-8 h-8 text-neon-cyan" />
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="experience-card glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-card/50 transition-all duration-300 group">
+            <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-neon-cyan/10 group-hover:glow-cyan transition-all duration-300 flex-shrink-0">
+                <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-foreground">Line Cook</h3>
-                <p className="text-primary font-medium">The Church Brewing Co</p>
-                <p className="text-sm text-muted-foreground">Sept 2023 - Present</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">Line Cook</h3>
+                <p className="text-sm sm:text-base text-primary font-medium">The Church Brewing Co</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Sept 2023 - Present</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               Thriving in a fast-paced environment through exceptional teamwork, precise organization, 
               and meticulous attention to detail. Skilled in multitasking and maintaining smooth customer 
               flow while ensuring consistent quality and efficiency.
             </p>
           </div>
 
-          <div className="experience-card glass rounded-3xl p-8 hover:bg-card/50 transition-all duration-300 group">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 rounded-2xl bg-neon-purple/10 group-hover:glow-purple transition-all duration-300">
-                <ShoppingCart className="w-8 h-8 text-neon-purple" />
+          <div className="experience-card glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-card/50 transition-all duration-300 group">
+            <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-neon-purple/10 group-hover:glow-purple transition-all duration-300 flex-shrink-0">
+                <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8 text-neon-purple" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-foreground">Store Associate</h3>
-                <p className="text-secondary font-medium">Independent Grocer</p>
-                <p className="text-sm text-muted-foreground">Feb 2024 - May 2024</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">Store Associate</h3>
+                <p className="text-sm sm:text-base text-secondary font-medium">Independent Grocer</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Feb 2024 - May 2024</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               Delivered exceptional customer service while managing stock inventory with precision. 
               Demonstrated strong communication skills and accuracy in all transactions, contributing 
               to a positive shopping experience for customers.
