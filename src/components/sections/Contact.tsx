@@ -95,7 +95,7 @@ const Contact = () => {
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
                 </a>
                 <a
-                  href="https://instagram.com/dipto_mondal1"
+                  href="https://www.instagram.com/dipto_mondal1/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 sm:p-4 glass rounded-xl hover:bg-accent/10 hover:glow-pink transition-all duration-300 touch-manipulation"
