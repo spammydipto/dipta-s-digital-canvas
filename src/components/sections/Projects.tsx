@@ -177,22 +177,37 @@ const Projects = () => {
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
-                  {project.githubLink !== "#" ? (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base touch-manipulation hover:text-neon-cyan transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Github className="w-4 h-4" />
-                      View on GitHub
-                    </a>
-                  ) : (
-                    <button className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base touch-manipulation">
-                      View Details <ExternalLink className="w-4 h-4" />
-                    </button>
-                  )}
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
+                    {project.githubLink !== "#" && (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-1.5 bg-card/80 backdrop-blur-sm text-foreground font-medium text-sm rounded-lg border border-border/50 hover:border-primary hover:text-primary transition-all touch-manipulation"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github className="w-4 h-4" />
+                        GitHub
+                      </a>
+                    )}
+                    {project.liveLink !== "#" && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-1.5 bg-primary text-primary-foreground font-medium text-sm rounded-lg hover:bg-primary/90 transition-all touch-manipulation"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Globe className="w-4 h-4" />
+                        Visit Website
+                      </a>
+                    )}
+                    {project.githubLink === "#" && project.liveLink === "#" && (
+                      <button className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base touch-manipulation">
+                        View Details <ExternalLink className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
               <div className="p-5 sm:p-6 space-y-3 sm:space-y-4 flex-1 flex flex-col">
