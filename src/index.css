@@ -123,8 +123,32 @@ All colors MUST be HSL.
   /* Improve text readability on mobile */
   @media (max-width: 768px) {
     body {
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 16px; /* Prevents iOS zoom on input focus */
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    /* Ensure better touch scrolling on iOS */
+    * {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent text size adjust on orientation change */
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  }
+
+  /* Extra small devices */
+  @media (max-width: 375px) {
+    body {
+      font-size: 15px;
     }
   }
 
@@ -230,6 +254,49 @@ All colors MUST be HSL.
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    /* Optimize scroll containers for mobile */
+    .touch-pan-x {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    /* Larger touch targets for mobile */
+    button, a, input, select, textarea {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Reduce blur on mobile for performance */
+    .glass {
+      @apply bg-card/40 backdrop-blur-md;
+    }
+
+    /* Simpler shadows on mobile */
+    .glow-cyan, .glow-purple, .glow-pink {
+      box-shadow: none;
+      @apply border-primary/30;
+    }
+
+    /* Optimize animations for mobile */
+    * {
+      animation-duration: 0.3s !important;
+    }
+
+    /* Better spacing for mobile */
+    section {
+      @apply px-4 py-12;
+    }
+  }
+
+  /* Landscape mobile optimizations */
+  @media (max-width: 768px) and (orientation: landscape) {
+    section {
+      @apply py-8;
     }
   }
 }
