@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Heart } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,8 +78,8 @@ const Footer = () => {
         </div>
 
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/30 text-center">
-          <p className="text-xs sm:text-sm text-muted-foreground flex items-center justify-center gap-2">
-            © 2025 Made with <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-accent animate-pulse" /> by Dipta Kumar Mondal
+          <p className="text-xs sm:text-sm text-muted-foreground">
+            © 2025 Dipta Kumar Mondal
           </p>
         </div>
       </div>
