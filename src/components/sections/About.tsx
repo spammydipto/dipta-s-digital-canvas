@@ -77,14 +77,18 @@ const About = () => {
             className="reveal space-y-6"
           >
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground/90 leading-relaxed">
-              I love solving real-world problems through code, and I'm always
-              excited to learn new tools and technologies. Outside of academics
-              and programming, riding motorcycles is one of my favorite hobbies.
+              I am a third-year Computer Science student at Acadia University, 
+              originally from a small town Kolkata, India. Growing up there helped 
+              me stay deeply connected to my culture and religion.
             </p>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground/90 leading-relaxed">
-              My journey in technology is driven by curiosity and a desire to
-              make a positive impact. I believe in continuous learning and
-              pushing boundaries to create innovative solutions.
+              At the same time, my passion for technology has always driven me to 
+              explore, learn, and build. I love solving real-world problems through 
+              code, and I'm always excited to learn new tools and technologies.
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground/90 leading-relaxed">
+              Outside of academics and programming, riding motorcycles is one of 
+              my favorite hobbies.
             </p>
           </div>
 
