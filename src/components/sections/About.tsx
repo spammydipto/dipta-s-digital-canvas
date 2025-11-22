@@ -29,13 +29,13 @@ const About = () => {
 
   const milestones = [
     {
-      year: "2022",
+      year: "2023",
       title: "Started at Acadia",
       icon: GraduationCap,
       description: "Began Computer Science journey",
     },
     {
-      year: "2023",
+      year: "2024",
       title: "Dean's List",
       icon: Award,
       description: "Achieved academic excellence",
