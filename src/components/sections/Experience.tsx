@@ -9,36 +9,24 @@ const Experience = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      ".experience-heading",
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".experience-heading",
-          start: "top 80%",
-        },
-      }
-    );
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".experience-section",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+      },
+    });
 
-    gsap.fromTo(
+    tl.fromTo(
+      ".experience-heading",
+      { opacity: 0, y: 60, filter: "blur(10px)" },
+      { opacity: 1, y: 0, filter: "blur(0px)", duration: 1, ease: "power2.out" }
+    ).fromTo(
       ".experience-card",
-      { opacity: 0, x: -60, rotateY: -10 },
-      {
-        opacity: 1,
-        x: 0,
-        rotateY: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".experience-card",
-          start: "top 85%",
-        },
-      }
+      { opacity: 0, y: 60 },
+      { opacity: 1, y: 0, stagger: 0.2, duration: 0.8, ease: "power2.out" },
+      "-=0.5"
     );
   }, []);
 

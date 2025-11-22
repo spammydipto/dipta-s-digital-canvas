@@ -25,13 +25,7 @@ const Navigation = () => {
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element && (window as any).lenis) {
-      (window as any).lenis.scrollTo(element, {
-        offset: -80, // Account for fixed header
-        duration: 1.8,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
-    } else if (element) {
+    if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setIsOpen(false);
