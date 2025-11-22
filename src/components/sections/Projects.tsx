@@ -76,43 +76,44 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="projects-section min-h-screen py-20 px-6">
+    <section id="projects" className="projects-section min-h-screen py-16 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto">
-        <h2 className="projects-heading text-5xl md:text-6xl font-bold text-center mb-16">
+        <h2 className="projects-heading text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 sm:mb-16">
           Featured <span className="gradient-text">Projects</span>
         </h2>
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-primary scrollbar-track-card"
+          className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 sm:pb-8 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-primary scrollbar-track-card px-4 sm:px-0 -mx-4 sm:mx-0"
         >
           {projects.map((project, index) => (
             <div
               key={index}
-              className="project-card min-w-[350px] md:min-w-[450px] glass rounded-3xl overflow-hidden group snap-center"
+              className="project-card min-w-[280px] sm:min-w-[320px] md:min-w-[380px] glass rounded-2xl sm:rounded-3xl overflow-hidden group snap-center flex-shrink-0"
             >
               <div className="relative overflow-hidden aspect-video">
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <button className="flex items-center gap-2 text-primary font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
+                  <button className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base touch-manipulation">
                     View Project <ExternalLink className="w-4 h-4" />
                   </button>
                 </div>
               </div>
-              <div className="p-6 space-y-4">
-                <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+              <div className="p-5 sm:p-6 space-y-3 sm:space-y-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground">{project.description}</p>
+                <p className="text-sm sm:text-base text-muted-foreground line-clamp-2">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
+                      className="px-2 sm:px-3 py-1 bg-primary/10 text-primary text-xs sm:text-sm rounded-full border border-primary/20"
                     >
                       {tech}
                     </span>
