@@ -168,10 +168,10 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="project-card min-w-[240px] sm:min-w-[280px] md:min-w-[320px] glass rounded-2xl sm:rounded-3xl overflow-hidden group snap-center flex-shrink-0 cursor-pointer"
+              className="project-card w-[420px] h-[520px] glass rounded-2xl sm:rounded-3xl overflow-hidden group snap-center flex-shrink-0 cursor-pointer flex flex-col"
               onClick={() => setSelectedProject(index)}
             >
-              <div className="relative overflow-hidden aspect-video">
+              <div className="relative overflow-hidden h-[280px] flex-shrink-0">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -184,7 +184,7 @@ const Projects = () => {
                   </button>
                 </div>
               </div>
-              <div className="p-5 sm:p-6 space-y-3 sm:space-y-4">
+              <div className="p-5 sm:p-6 space-y-3 sm:space-y-4 flex-1 flex flex-col">
                 <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
