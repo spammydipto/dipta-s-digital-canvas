@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram } from "lucide-react";
-import { toast } from "sonner";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -37,20 +26,8 @@ const Contact = () => {
         { opacity: 0, x: -40 },
         { opacity: 1, x: 0, stagger: 0.15, duration: 0.6, ease: "power2.out" },
         "-=0.5"
-      )
-      .fromTo(
-        ".contact-input",
-        { opacity: 0, x: 40 },
-        { opacity: 1, x: 0, stagger: 0.1, duration: 0.6, ease: "power2.out" },
-        "-=0.8"
       );
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Message sent successfully!");
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
 
   return (
     <section id="contact" className="contact-section min-h-screen py-16 sm:py-20 px-4 sm:px-6">
@@ -59,7 +36,7 @@ const Contact = () => {
           Get In <span className="gradient-text">Touch</span>
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
+        <div className="max-w-2xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-6 sm:space-y-8">
             <div className="contact-info glass rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex items-center gap-3 sm:gap-4 hover:bg-card/50 transition-all duration-300">
@@ -118,7 +95,7 @@ const Contact = () => {
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
                 </a>
                 <a
-                  href="https://instagram.com/dipto_mondal1"
+                  href="https://www.instagram.com/dipto_mondal1/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 sm:p-4 glass rounded-xl hover:bg-accent/10 hover:glow-pink transition-all duration-300 touch-manipulation"
@@ -129,54 +106,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-
-          {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 space-y-5 sm:space-y-6">
-            <div className="contact-input">
-              <Input
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-                className="bg-background/50 border-border/50 focus:border-primary h-12 sm:h-auto text-base touch-manipulation"
-              />
-            </div>
-            <div className="contact-input">
-              <Input
-                type="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-                className="bg-background/50 border-border/50 focus:border-primary h-12 sm:h-auto text-base touch-manipulation"
-              />
-            </div>
-            <div className="contact-input">
-              <Input
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                required
-                className="bg-background/50 border-border/50 focus:border-primary h-12 sm:h-auto text-base touch-manipulation"
-              />
-            </div>
-            <div className="contact-input">
-              <Textarea
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                required
-                rows={5}
-                className="bg-background/50 border-border/50 focus:border-primary resize-none text-base touch-manipulation"
-              />
-            </div>
-            <Button
-              type="submit"
-              className="w-full bg-gradient-to-r from-neon-cyan to-neon-purple hover:opacity-90 transition-all duration-300 glow-cyan text-base sm:text-lg py-6 sm:py-7 min-h-[48px] touch-manipulation"
-            >
-              Send Message
-            </Button>
-          </form>
         </div>
       </div>
     </section>
