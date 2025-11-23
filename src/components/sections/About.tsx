@@ -105,7 +105,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen py-16 sm:py-24 px-4 sm:px-6 overflow-hidden"
+      className="relative min-h-screen py-16 sm:py-24 px-4 sm:px-6 overflow-hidden pointer-events-auto"
     >
       <div className="container mx-auto max-w-[1200px]">
         {/* Heading */}

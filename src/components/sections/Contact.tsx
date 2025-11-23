@@ -26,7 +26,7 @@ const Contact = () => {
     );
   }, []);
   return (
-    <section id="contact" className="contact-section min-h-screen py-16 sm:py-20 px-4 sm:px-6">
+    <section id="contact" className="contact-section min-h-screen py-16 sm:py-20 px-4 sm:px-6 pointer-events-auto">
       {" "}
       <div className="container mx-auto max-w-6xl">
         <h2 className="contact-heading text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 sm:mb-8">

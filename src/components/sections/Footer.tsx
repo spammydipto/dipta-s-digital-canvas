@@ -33,7 +33,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="footer-section relative py-8 sm:py-12 px-4 sm:px-6 border-t border-border/50">
+    <footer className="footer-section relative py-8 sm:py-12 px-4 sm:px-6 border-t border-border/50 pointer-events-auto">
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
         <div className="floating-particle absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-neon-cyan/30" />

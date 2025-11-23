@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 pointer-events-auto"
     >
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
