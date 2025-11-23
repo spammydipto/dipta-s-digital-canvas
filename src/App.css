@@ -53,3 +53,8 @@ iframe[src*="spline.design"] {
   position: relative;
   clip-path: inset(0 0 32px 0);
 }
+
+/* Hide floating Spline "Built with Spline" badge */
+a[href*="spline.design"][target="_blank"] {
+  display: none !important;
+}
