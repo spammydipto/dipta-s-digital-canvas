@@ -51,8 +51,7 @@
 /* Hide Spline watermark/tag */
 iframe[src*="spline.design"] {
   position: relative;
-  /* Crop a bit more from the bottom to fully hide the Spline tag */
-  clip-path: inset(0 0 80px 0);
+  clip-path: inset(0 0 32px 0);
 }
 
 /* Hide floating Spline "Built with Spline" badge */
