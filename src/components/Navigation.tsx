@@ -33,12 +33,12 @@ const Navigation = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 pointer-events-auto ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 pointer-events-none ${
         scrolled ? "glass border-b border-border/50 py-3 sm:py-4" : "py-4 sm:py-6"
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
-        <a href="/" className="nav-item text-xl sm:text-2xl font-bold gradient-text touch-manipulation">Dipta</a>
+        <a href="/" className="nav-item text-xl sm:text-2xl font-bold gradient-text touch-manipulation pointer-events-auto">Dipta</a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -46,7 +46,7 @@ const Navigation = () => {
             <button
               key={item}
               onClick={() => scrollToSection(item.toLowerCase())}
-              className="nav-item text-sm lg:text-base text-foreground/80 hover:text-primary transition-colors duration-300 touch-manipulation"
+              className="nav-item text-sm lg:text-base text-foreground/80 hover:text-primary transition-colors duration-300 touch-manipulation pointer-events-auto"
               style={{ opacity: 0 }}
             >
               {item}
@@ -58,7 +58,7 @@ const Navigation = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden nav-item min-h-[44px] min-w-[44px] touch-manipulation"
+          className="md:hidden nav-item min-h-[44px] min-w-[44px] touch-manipulation pointer-events-auto"
           onClick={() => setIsOpen(!isOpen)}
           style={{ opacity: 0 }}
           aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -75,7 +75,7 @@ const Navigation = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300 text-left py-2 touch-manipulation min-h-[44px]"
+                className="text-foreground/80 hover:text-primary transition-colors duration-300 text-left py-2 touch-manipulation min-h-[44px] pointer-events-auto"
               >
                 {item}
               </button>
