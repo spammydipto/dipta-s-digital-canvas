@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 pointer-events-auto"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 pointer-events-none"
     >
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
@@ -76,7 +76,7 @@ const Hero = () => {
                 e.preventDefault();
                 scrollToAbout();
               }}
-              className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 pointer-events-auto"
             >
               About Me
             </a>
@@ -88,7 +88,7 @@ const Hero = () => {
                   .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium border border-border bg-transparent text-foreground rounded-md hover:bg-accent hover:text-accent-foreground transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium border border-border bg-transparent text-foreground rounded-md hover:bg-accent hover:text-accent-foreground transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 pointer-events-auto"
             >
               Get In Touch
             </a>
@@ -98,7 +98,7 @@ const Hero = () => {
         {/* Scroll Indicator */}
         <button
           onClick={scrollToAbout}
-          className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 animate-bounce p-3 touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:rounded-full"
+          className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 animate-bounce p-3 touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:rounded-full pointer-events-auto"
           aria-label="Scroll to About section"
         >
           <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
