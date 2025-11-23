@@ -45,7 +45,7 @@ const Index = () => {
         asChild
         className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 bg-primary/20 backdrop-blur-md border border-primary/30 text-foreground hover:bg-primary/30 hover:glow-purple transition-all duration-300 shadow-lg px-4 py-6 md:px-6 md:py-7 rounded-xl group"
       >
-        <a href="#" download className="flex items-center gap-2">
+        <a href="/Dipta_Kumar_Mondal_resume.pdf" download="Dipta_Kumar_Mondal_resume.pdf" className="flex items-center gap-2">
           <Download className="w-4 h-4 md:w-5 md:h-5 group-hover:animate-bounce" />
           <span className="hidden md:inline">Download Resume</span>
         </a>
