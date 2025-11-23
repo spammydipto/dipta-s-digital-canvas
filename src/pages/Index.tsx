@@ -14,7 +14,7 @@ const Index = () => {
   useLenis();
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+    <div className="min-h-screen text-foreground overflow-x-hidden relative">
       {/* Spline 3D Background - Hidden on mobile for performance */}
       <div className="fixed inset-0 z-0 hidden md:block">
         <iframe
