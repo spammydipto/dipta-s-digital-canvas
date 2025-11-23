@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Spline 3D iframe styles */
+.spline-iframe {
+  border: none;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+/* Hide Spline watermark/tag */
+iframe[src*="spline.design"] {
+  position: relative;
+}

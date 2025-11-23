@@ -18,7 +18,7 @@ const Index = () => {
       {/* Spline 3D Background - Hidden on mobile for performance */}
       <div className="fixed inset-0 z-0 hidden md:block">
         <iframe
-          src="https://my.spline.design/distortingtypography-wijsIk1oyEBjaSdIpuZNDDHq/"
+          src="https://my.spline.design/genkubgreetingrobot-Ivbyn6wLVGEhEOeah8wnVoUw/"
           frameBorder="0"
           width="100%"
           height="100%"
