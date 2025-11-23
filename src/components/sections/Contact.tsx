@@ -44,7 +44,7 @@ const Contact = () => {
               <Button
                 asChild
                 size="lg"
-                className="glass text-base sm:text-lg px-8 sm:px-12 py-6 sm:py-8 rounded-2xl hover:glow-cyan transition-all duration-300"
+                className="bg-primary/20 backdrop-blur-md border border-primary/30 text-foreground text-base sm:text-lg px-8 sm:px-12 py-6 sm:py-8 rounded-2xl hover:bg-primary/30 hover:glow-cyan transition-all duration-300"
               >
                 <a href="mailto:diptakmondal2001.ind@gmail.com" className="flex items-center gap-3">
                   <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -87,20 +87,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Download Resume - Bottom Left */}
-            <div className="contact-info mt-12 sm:mt-16">
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="glass text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 rounded-xl hover:glow-purple transition-all duration-300"
-              >
-                <a href="#" download className="flex items-center gap-2">
-                  <Download className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Download Resume
-                </a>
-              </Button>
-            </div>
           </div>
         </div>
       </div>
