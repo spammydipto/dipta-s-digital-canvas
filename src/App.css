@@ -51,4 +51,5 @@
 /* Hide Spline watermark/tag */
 iframe[src*="spline.design"] {
   position: relative;
+  clip-path: inset(0 0 32px 0);
 }
