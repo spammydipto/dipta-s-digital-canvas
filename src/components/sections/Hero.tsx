@@ -78,7 +78,7 @@ const Hero = () => {
               }}
               className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-all duration-300 min-h-[48px] touch-manipulation focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
-              View My Work
+              About Me
             </a>
             <a
               href="#contact"
