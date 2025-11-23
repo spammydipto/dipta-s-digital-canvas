@@ -33,7 +33,7 @@ const Navigation = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 pointer-events-auto ${
         scrolled ? "glass border-b border-border/50 py-3 sm:py-4" : "py-4 sm:py-6"
       }`}
     >

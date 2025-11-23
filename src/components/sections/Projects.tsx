@@ -135,7 +135,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="projects-section min-h-screen py-16 sm:py-20 px-4 sm:px-6">
+    <section id="projects" className="projects-section min-h-screen py-16 sm:py-20 px-4 sm:px-6 pointer-events-auto">
       <div className="container mx-auto">
         <h2 className="projects-heading text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 sm:mb-12">
           <span className="gradient-text">Projects</span>

@@ -43,7 +43,7 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="education-section min-h-screen py-16 sm:py-20 px-4 sm:px-6">
+    <section id="education" className="education-section min-h-screen py-16 sm:py-20 px-4 sm:px-6 pointer-events-auto">
       <div className="container mx-auto max-w-7xl">
         <h2 className="education-heading text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 sm:mb-16">
           Education & <span className="gradient-text">Certifications</span>
